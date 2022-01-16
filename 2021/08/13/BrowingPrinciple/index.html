@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="欲望受到侵蚀 行动定要受阻">
+  
+  <title>
+    浏览器是如何工作的 |
+    
+    柯
+  </title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-BrowingPrinciple" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h1 class="article-title" itemprop="name">
+  浏览器是如何工作的
+</h1>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2021/08/13/BrowingPrinciple/" class="article-date">
+  <time datetime="2021-08-13T10:46:25.000Z" itemprop="datePublished">2021-08-13</time>
+</a>
+      
+<div class="article-category">
+  <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a> / <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a>
+</div>
+
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+      <p>了解浏览器的工作原理更利于我们的开发。干饭的时候也需要先学习碗筷是如何使用的。</p>
+<span id="more"></span>
+
+
+<h4 id="一、浏览器结构图"><a href="#一、浏览器结构图" class="headerlink" title="一、浏览器结构图"></a>一、浏览器结构图</h4><h5 id="1、下图是简化的浏览器结构图"><a href="#1、下图是简化的浏览器结构图" class="headerlink" title="1、下图是简化的浏览器结构图"></a>1、下图是简化的浏览器结构图</h5><p><img src="http://r4rg6x7uh.hn-bkt.clouddn.com/image-20211230170150494.png"></p>
+<h5 id="2、不同浏览器使用的内核不一样"><a href="#2、不同浏览器使用的内核不一样" class="headerlink" title="2、不同浏览器使用的内核不一样"></a>2、不同浏览器使用的内核不一样</h5><table>
+<thead>
+<tr>
+<th align="center">IE</th>
+<th align="center">Trident</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Firefox</td>
+<td align="center">Gecko</td>
+</tr>
+<tr>
+<td align="center">safari</td>
+<td align="center">Webkit（开源）</td>
+</tr>
+<tr>
+<td align="center">chrome/edge/Opera</td>
+<td align="center">Blink</td>
+</tr>
+</tbody></table>
+<h4 id="二、浏览器工作原理"><a href="#二、浏览器工作原理" class="headerlink" title="二、浏览器工作原理"></a>二、浏览器工作原理</h4><h5 id="1、本文以chrome浏览器为例讲解浏览器是如何工作的："><a href="#1、本文以chrome浏览器为例讲解浏览器是如何工作的：" class="headerlink" title="1、本文以chrome浏览器为例讲解浏览器是如何工作的："></a>1、本文以chrome浏览器为例讲解浏览器是如何工作的：</h5><ul>
+<li><p>浏览器是运行在操作系统上的一个应用程序，每个应用程序必须至少启动一个进程来执行其功能，每个程序往往需要运行很多任务，进程就会创建一些线程来帮助它去执行一些小的任务。</p>
+</li>
+<li><p>根据进程功能不同来拆卸浏览器，可以分解为以下的结构：</p>
+</li>
+</ul>
+<p><img src="http://r4rg6x7uh.hn-bkt.clouddn.com/image-20211230172106238.png"></p>
+<h5 id="2、接下来让我们看看在浏览器地址栏里面输入内容时，浏览器内部会发生什么事情："><a href="#2、接下来让我们看看在浏览器地址栏里面输入内容时，浏览器内部会发生什么事情：" class="headerlink" title="2、接下来让我们看看在浏览器地址栏里面输入内容时，浏览器内部会发生什么事情："></a>2、接下来让我们看看在浏览器地址栏里面输入内容时，浏览器内部会发生什么事情：<img src="http://r4rg6x7uh.hn-bkt.clouddn.com/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%861.png" alt="浏览器工作原理1"></h5><h5 id="3、简化来说就是下图："><a href="#3、简化来说就是下图：" class="headerlink" title="3、简化来说就是下图："></a>3、简化来说就是下图：</h5><p><img src="http://r4rg6x7uh.hn-bkt.clouddn.com/image-20211231111032064.png"></p>
+<h4 id="三、页面经常发生改变会引起什么问题"><a href="#三、页面经常发生改变会引起什么问题" class="headerlink" title="三、页面经常发生改变会引起什么问题"></a>三、页面经常发生改变会引起什么问题</h4><p>接下来引入两个概念：</p>
+<h5 id="1、重绘和重排"><a href="#1、重绘和重排" class="headerlink" title="1、重绘和重排"></a>1、重绘和重排</h5><ul>
+<li>重排：当我们改变一个元素的尺寸位置属性时，会重新进行样式计算（computed style）、布局（layout）、绘制（paint）以及后面的所有流程</li>
+<li>重绘：当我们改变一个元素的颜色属性时，不会重新触发布局，但还是会触发样式计算和绘制，</li>
+</ul>
+<p>重排和重绘都会占用主线程，JS也是会运行在主线程上的，他们都运行在主线程上，就会出现抢占执行时间的问题，如果写了一个不断导致重排重绘的动画，浏览器则需要在每一帧都运行样式计算、布局和绘制的操作。</p>
+<p>当页面以每秒60帧的刷新率时（也是每帧16ms）才不会让用户感到页面卡顿，如果在运行动画时还有大量JS任务需要执行，因为布局、绘制、和JS执行都是在主线程进行的，当在一帧的时间内布局和绘制结束后还有剩余的时间，JS就会拿到主线程的使用权，如果JS执行时间过长就会导致下一帧开始时JS没有及时归还主线程，导致下一帧动画没有按时渲染，就会出现页面动画的卡顿</p>
+<p><img src="http://r4rg6x7uh.hn-bkt.clouddn.com/image-20211231105800750.png"></p>
+<h5 id="2、有什么优化手段可以解决动画卡顿的问题吗？"><a href="#2、有什么优化手段可以解决动画卡顿的问题吗？" class="headerlink" title="2、有什么优化手段可以解决动画卡顿的问题吗？"></a>2、有什么优化手段可以解决动画卡顿的问题吗？</h5><ul>
+<li><p><strong>requestAnimitionFrame</strong></p>
+<ul>
+<li>通过requestAnimitionFrame()这个API来帮助我们解决这个问题，这个方法会在每一帧被调用，通过API的调用，然后我们可以把JS执行任务分成一些更小的任务块（分到每一帧），在每一帧时间用完之前暂停JS执行，归还主线程，这样的话，在下一帧开始时，主线程就可以按时执行部件和绘制。（react最新的渲染引擎 React Fiber就用到了这个API来做了很多优化）</li>
+</ul>
+</li>
+<li><p><strong>transform</strong></p>
+<ul>
+<li>栅格化的整个过程（只在合成器线程和栅格线程中运行）都是不占用主线程的，这就表示他不会和JS抢夺主线程，反复重绘重排会导致掉帧是因为有可能JS执行阻塞了主线程，而CSS有个动画属性transform，通过该属性实现的动画不会经过布局和绘制，而是直接运行在合成器线程和栅格化线程中，所以不会受到主线程中JS执行的影响，更重要的是通过transform实现的动画由于不需要经过布局绘制，样式计算等操作，所以节省了很多运算时间。</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://r4rg6x7uh.hn-bkt.clouddn.com/image-20211231105733737.png" alt="image-20211231105733737"></p>
+
+      
+    </div>
+    <!-- <footer class="article-footer">
+      <a data-url="http://example.com/2021/08/13/BrowingPrinciple/" data-id="ckxtuajax00007gvod1ey2ww5" class="article-share-link">
+        分享
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" rel="tag">浏览器</a></li></ul>
+
+    </footer> -->
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  <a href="/2021/10/05/ES6/" class="article-nav-link">
+    <strong class="article-nav-caption">前一篇</strong>
+    <div class="article-nav-title">
+      
+      ES6-ES7新特性
+      
+    </div>
+  </a>
+  
+  
+  <a href="/2021/06/25/DOM%20BOM%E6%93%8D%E4%BD%9C/" class="article-nav-link">
+    <strong class="article-nav-caption">后一篇</strong>
+    <div class="article-nav-title">DOM BOM操作</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+  
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt"></i>
+     <!-- <span id="busuanzi_value_site_uv"></span> -->
+    </li>
+  
+  <li><i class="fe fe-bookmark"></i> 
+    <span id="busuanzi_value_page_pv"></span>
+  </li>
+  
+</ul>     
+    </div>
+    
+    <ul class="list-inline">
+      <li>柯 &copy; 2022</li>
+      
+        <li>ZHWANGART</li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+     
+    </ul>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/star.svg" alt="柯"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">Home</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">Archives</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">About</a>
+    </li>
+    
+   
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop" style="width: 5rem;height:5rem;">
+  <i class="fe fe-rocket" ></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/copybtn.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>

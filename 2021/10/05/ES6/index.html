@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="欲望受到侵蚀 行动定要受阻">
+  
+  <title>
+    ES6-ES7新特性 |
+    
+    柯
+  </title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-ES6" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h1 class="article-title" itemprop="name">
+  ES6-ES7新特性
+</h1>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2021/10/05/ES6/" class="article-date">
+  <time datetime="2021-10-05T12:46:25.000Z" itemprop="datePublished">2021-10-05</time>
+</a>
+      
+<div class="article-category">
+  <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a> / <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/ES6/">ES6</a> / <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80-JavaScript/">浏览器脚本语言(JavaScript)</a>
+</div>
+
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+      <p>现阶段前端行业发展迅猛，前端技术也在高速迭代，ES6-ES11规范增加了很多JavaScript新特性。ES新特性已经成为前端技术发展的趋势，语法简洁，功能丰富，部分特性还有性能提升。</p>
+<span id="more"></span>
+
+
+
+<h2 id="一、ES"><a href="#一、ES" class="headerlink" title="一、ES"></a>一、ES</h2><p>ECMA（European Computer Manufacture Association）欧洲计算机制造商协会</p>
+<p>脚本语言的规范，JS是ES的一种实现，所以ES新特性其实指的是JS的新特性</p>
+<h3 id="二、优点"><a href="#二、优点" class="headerlink" title="二、优点"></a>二、优点</h3><p>（1）语法简洁，功能丰富</p>
+<p>（2）框架开发应用</p>
+<p>（3）前端开发职位要求</p>
+<h3 id="三、ES6"><a href="#三、ES6" class="headerlink" title="三、ES6"></a>三、ES6</h3><h4 id="（一）let变量声明以及声明特性"><a href="#（一）let变量声明以及声明特性" class="headerlink" title="（一）let变量声明以及声明特性"></a>（一）let变量声明以及声明特性</h4><h5 id="1、变量不能重复声明"><a href="#1、变量不能重复声明" class="headerlink" title="1、变量不能重复声明"></a>1、变量不能重复声明</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> star=<span class="string">&#x27;张小花&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> star=<span class="string">&#x27;张小花&#x27;</span><span class="comment">//报错，担心会被污染</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="2、块级作用域"><a href="#2、块级作用域" class="headerlink" title="2、块级作用域"></a>2、块级作用域</h5><p>作用域：全局、函数、eval（es5的严格模式里面才会出现）</p>
+<p>块级作用域：只在代码块里面有效</p>
+<p>常见块级作用域：if、else、while、for </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">     <span class="keyword">let</span> girl=<span class="string">&#x27;张小花&#x27;</span>;</span><br><span class="line">     <span class="keyword">var</span> girl1=<span class="string">&#x27;李小草&#x27;</span>;<span class="comment">//var没有块级作用域，会往全局window对象里面添加这个属性</span></span><br><span class="line">&#125;</span><br><span class="line"> <span class="built_in">console</span>.log(girl1);</span><br><span class="line"> <span class="built_in">console</span>.log(girl);<span class="comment">//报错</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="3、不存在变量提升"><a href="#3、不存在变量提升" class="headerlink" title="3、不存在变量提升"></a>3、不存在变量提升</h5><p>   变量提升：代码在执行之前，会去收集变量（var变量还有函数），对于var声明的变量还会赋一个undefined初始值</p>
+<p>​    ex：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    console.log(song);//undefined</span><br><span class="line">​    var song=&#x27;青花瓷&#x27;;</span><br><span class="line">​    console.log(song);</span><br><span class="line">​    console.log(song1);//不允许在变量声明之前使用变量</span><br><span class="line">​    let song1=&#x27;稻香&#x27;;</span><br><span class="line">​    console.log(song1);</span><br></pre></td></tr></table></figure>
+
+<h5 id="4、不影响作用域链"><a href="#4、不影响作用域链" class="headerlink" title="4、不影响作用域链"></a>4、不影响作用域链</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">   &#123;</span><br><span class="line">​      let school=&#x27;etc&#x27;;</span><br><span class="line">​      function fn() &#123;</span><br><span class="line">​       console.log(school);</span><br><span class="line">​  &#125;</span><br><span class="line">​   fn();//都可以输出school</span><br><span class="line">​  &#125;</span><br><span class="line">​   fn();//都可以输出school</span><br></pre></td></tr></table></figure>
+
+<h4 id="（二）const声明常量（值不能修改的量）及其特点"><a href="#（二）const声明常量（值不能修改的量）及其特点" class="headerlink" title="（二）const声明常量（值不能修改的量）及其特点"></a>（二）const声明常量（值不能修改的量）及其特点</h4><h5 id="1、一定要赋初始值"><a href="#1、一定要赋初始值" class="headerlink" title="1、一定要赋初始值"></a>1、一定要赋初始值</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> school=<span class="string">&#x27;ieu&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2、一般常量使用大写（潜规则）"><a href="#2、一般常量使用大写（潜规则）" class="headerlink" title="2、一般常量使用大写（潜规则）"></a>2、一般常量使用大写（潜规则）</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> SCHOOL=<span class="string">&#x27;清华大学&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="3、值不能修改"><a href="#3、值不能修改" class="headerlink" title="3、值不能修改"></a>3、值不能修改</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> SCHOOL=<span class="string">&#x27;清华大学&#x27;</span>;</span><br><span class="line">SCHOOL=<span class="string">&#x27;北京大学&#x27;</span>;<span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="4、块级作用域"><a href="#4、块级作用域" class="headerlink" title="4、块级作用域"></a>4、块级作用域</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> TEAM=[<span class="string">&#x27;UZI&#x27;</span>,<span class="string">&#x27;MXLG&#x27;</span>,<span class="string">&#x27;Ming&#x27;</span>];</span><br><span class="line">TEAM.push(<span class="string">&#x27;Meiko&#x27;</span>);<span class="comment">//这个时候指向的是地址，地址没有发生改变，就不会报错</span></span><br><span class="line">TEAM=[<span class="string">&#x27;hello&#x27;</span>];<span class="comment">//这个时候整个数组都换了，地址发生了改变，就会报错</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="5、对于数组和对象的元素的修改，不算做对常量的修改，不会报错，这个时候指向的是地址，地址没有发生改变，就不会报错，除此之外，用const定义函数和数组可以避免别人修改"><a href="#5、对于数组和对象的元素的修改，不算做对常量的修改，不会报错，这个时候指向的是地址，地址没有发生改变，就不会报错，除此之外，用const定义函数和数组可以避免别人修改" class="headerlink" title="5、对于数组和对象的元素的修改，不算做对常量的修改，不会报错，这个时候指向的是地址，地址没有发生改变，就不会报错，除此之外，用const定义函数和数组可以避免别人修改"></a>5、对于数组和对象的元素的修改，不算做对常量的修改，不会报错，这个时候指向的是地址，地址没有发生改变，就不会报错，除此之外，用const定义函数和数组可以避免别人修改</h6><h4 id="（三）变量的解构赋值"><a href="#（三）变量的解构赋值" class="headerlink" title="（三）变量的解构赋值"></a>（三）变量的解构赋值</h4><p>ES6允许按照一定模式从数组和对象中提取值，对变量进行赋值，着称为解构赋值</p>
+<h5 id="1-数组的解构"><a href="#1-数组的解构" class="headerlink" title="1.数组的解构"></a>1.数组的解构</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">const</span> F4=[<span class="string">&#x27;刘能&#x27;</span>,<span class="string">&#x27;李四&#x27;</span>,<span class="string">&#x27;张三&#x27;</span>,<span class="string">&#x27;宋小宝&#x27;</span>];</span><br><span class="line">​    <span class="keyword">let</span> [liuneng,lisi,zhangsan,songxiaobao]=F4;</span><br><span class="line">​    <span class="built_in">console</span>.log(liuneng);</span><br><span class="line">​    <span class="built_in">console</span>.log(lisi);</span><br><span class="line">​    <span class="built_in">console</span>.log(zhangsan);</span><br><span class="line">​    <span class="built_in">console</span>.log(songxiaobao);</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-对象的解构"><a href="#2-对象的解构" class="headerlink" title="2.对象的解构"></a>2.对象的解构</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> zhao=&#123;</span><br><span class="line">​      name:<span class="string">&#x27;张三&#x27;</span>,</span><br><span class="line">​      sex:<span class="string">&#x27;男&#x27;</span>,</span><br><span class="line">​      work:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">​        <span class="built_in">console</span>.log(<span class="string">&#x27;hello world&#x27;</span>);</span><br><span class="line">​        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">​      &#125;</span><br><span class="line">​    &#125;</span><br><span class="line">​    <span class="keyword">let</span> &#123;name,sex&#125;=zhao;</span><br><span class="line">​    <span class="built_in">console</span>.log(name);</span><br><span class="line">​    <span class="built_in">console</span>.log(sex);</span><br><span class="line">​    <span class="keyword">let</span> &#123;work&#125;=zhao</span><br><span class="line">​    <span class="built_in">console</span>.log(work);</span><br><span class="line">​    work()</span><br></pre></td></tr></table></figure>
+
+<h4 id="（四）模板字符串"><a href="#（四）模板字符串" class="headerlink" title="（四）模板字符串"></a>（四）模板字符串</h4><p>ES6引入新的声明字符串的方式``(反引号)</p>
+<h5 id="1-声明"><a href="#1-声明" class="headerlink" title="1.声明"></a>1.声明</h5><h5 id="2-内容中可以直接出现换行符"><a href="#2-内容中可以直接出现换行符" class="headerlink" title="2.内容中可以直接出现换行符"></a>2.内容中可以直接出现换行符</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> let str1=`&lt;ul&gt;</span><br><span class="line">​        &lt;li&gt;你好&lt;/li&gt;</span><br><span class="line">​        &lt;li&gt;世界&lt;/li&gt;</span><br><span class="line">​        &lt;/ul&gt;`</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-变量拼接"><a href="#3-变量拼接" class="headerlink" title="3.变量拼接"></a>3.变量拼接</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  	 <span class="keyword">let</span> lovest=<span class="string">&#x27;kejie&#x27;</span>;</span><br><span class="line">​    <span class="keyword">let</span> out=lovest+<span class="string">&#x27;is good&#x27;</span>;</span><br><span class="line">​    <span class="built_in">console</span>.log(out);</span><br><span class="line">​    <span class="keyword">let</span> out1=<span class="string">`<span class="subst">$&#123;lovest&#125;</span>is good`</span></span><br><span class="line">​    <span class="built_in">console</span>.log(out1);</span><br></pre></td></tr></table></figure>
+
+<h4 id="（五）ES6的简化对象写法"><a href="#（五）ES6的简化对象写法" class="headerlink" title="（五）ES6的简化对象写法"></a>（五）ES6的简化对象写法</h4><h5 id="1-ES6允许在大括号里面，直接写入变量和函数，作为对象的属性和方法"><a href="#1-ES6允许在大括号里面，直接写入变量和函数，作为对象的属性和方法" class="headerlink" title="1.ES6允许在大括号里面，直接写入变量和函数，作为对象的属性和方法"></a>1.ES6允许在大括号里面，直接写入变量和函数，作为对象的属性和方法</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> 	 <span class="keyword">let</span> name=<span class="string">&#x27;张三&#x27;</span>;</span><br><span class="line">​    <span class="keyword">let</span> change = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">​      <span class="built_in">console</span>.log(<span class="string">&#x27;斯是陋室&#x27;</span>);</span><br><span class="line">​    &#125;</span><br><span class="line"></span><br><span class="line">​    <span class="keyword">const</span> school=&#123;</span><br><span class="line">​      name,</span><br><span class="line">​      change,</span><br><span class="line">​      <span class="function"><span class="title">improve</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">​        <span class="built_in">console</span>.log(<span class="string">&#x27;improve&#x27;</span>);</span><br><span class="line">​      &#125;</span><br><span class="line">​    &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="（六）箭头函数"><a href="#（六）箭头函数" class="headerlink" title="（六）箭头函数"></a>（六）箭头函数</h4><h5 id="1-this是静态的，this始终指向函数声明时所在作用域（外层）下的this的值"><a href="#1-this是静态的，this始终指向函数声明时所在作用域（外层）下的this的值" class="headerlink" title="1.this是静态的，this始终指向函数声明时所在作用域（外层）下的this的值"></a>1.this是静态的，this始终指向函数声明时所在作用域（外层）下的this的值</h5><p>（1）它那个没有自己的this，构造函数是指向创建的实例对象，声明的普通函数是谁调用我我就指向谁</p>
+<p>（2）无论用call还是apply改变，箭头函数的this指向都是不会改变的 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">	 <span class="built_in">window</span>.name=<span class="string">&#x27;张三&#x27;</span>;</span><br><span class="line">​    <span class="keyword">let</span> test1=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">​      <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">​    &#125;    </span><br><span class="line">​    <span class="keyword">let</span> test2=<span class="function">()=&gt;</span>&#123;</span><br><span class="line">​      <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">​    &#125;     </span><br><span class="line"></span><br><span class="line">​    <span class="keyword">const</span> student=&#123;</span><br><span class="line">​      name:<span class="string">&#x27;李四&#x27;</span>,</span><br><span class="line">​    &#125; </span><br><span class="line"></span><br><span class="line">​    <span class="comment">//直接调用</span></span><br><span class="line">​    test1();</span><br><span class="line">​    test2();</span><br><span class="line"></span><br><span class="line">​    <span class="comment">//call方法调用，call可以改变函数内部this指向的值</span></span><br><span class="line">​    test1.call(student);</span><br><span class="line">​    test2.call(student);</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-不能作为构造函数实例化对象"><a href="#2-不能作为构造函数实例化对象" class="headerlink" title="2.不能作为构造函数实例化对象"></a>2.不能作为构造函数实例化对象</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">let</span> person=<span class="function">(<span class="params">name,age</span>)=&gt;</span>&#123;</span><br><span class="line">​      name=<span class="built_in">this</span>.name;</span><br><span class="line">​      age=<span class="built_in">this</span>.age</span><br><span class="line">​    &#125;</span><br><span class="line"></span><br><span class="line">​    <span class="keyword">let</span> me=<span class="keyword">new</span> person(<span class="string">&#x27;xiao&#x27;</span>,<span class="number">18</span>);</span><br><span class="line">​    <span class="built_in">console</span>.log(me);</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-不能使用arguments变量（函数内部一个用来保存实参的特殊变量）"><a href="#3-不能使用arguments变量（函数内部一个用来保存实参的特殊变量）" class="headerlink" title="3.不能使用arguments变量（函数内部一个用来保存实参的特殊变量）"></a>3.不能使用arguments变量（函数内部一个用来保存实参的特殊变量）</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> 	 let fn1=()=&gt;&#123;</span><br><span class="line">​      console.log(arguments);</span><br><span class="line">​    &#125;</span><br><span class="line"></span><br><span class="line">​    fn1(1,2);//报错 arguments is not defined</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-箭头函数的简写"><a href="#4-箭头函数的简写" class="headerlink" title="4.箭头函数的简写"></a>4.箭头函数的简写</h5><p> （1）省略小括号，当形参有且只有一个的时候</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> 	 let add=n=&gt;&#123;</span><br><span class="line">​      console.log(n+n); </span><br><span class="line">​    &#125;</span><br><span class="line"></span><br><span class="line">​    add(3);</span><br></pre></td></tr></table></figure>
+
+<p>  （2）省略花括号，当函数体只有一条语句的时候,且return语句也必须要省略,而且语句的执行结果就是函数的返回值   </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  	let pow=(n)=&gt; n*n;</span><br><span class="line">​   console.log(pow(3));</span><br></pre></td></tr></table></figure>
+
+<h5 id="5-箭头函数适用场景"><a href="#5-箭头函数适用场景" class="headerlink" title="5.箭头函数适用场景"></a>5.箭头函数适用场景</h5><p>（1）适合与this无关的回调，ex：定时器、数组的方法回调</p>
+<p>（2）不适合与this有关的回调，ex：dom元素的事件回调、对象的方法</p>
+<h4 id="（七）参数默认值（允许给函数参数赋值初始值）"><a href="#（七）参数默认值（允许给函数参数赋值初始值）" class="headerlink" title="（七）参数默认值（允许给函数参数赋值初始值）"></a>（七）参数默认值（允许给函数参数赋值初始值）</h4><h5 id="1-形参初始值，具有默认值的参数，一般位置要靠后"><a href="#1-形参初始值，具有默认值的参数，一般位置要靠后" class="headerlink" title="1.形参初始值，具有默认值的参数，一般位置要靠后"></a>1.形参初始值，具有默认值的参数，一般位置要靠后</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">     function add(a,b,c=10)&#123;</span><br><span class="line">​      console.log(a+b+c); </span><br><span class="line">​    &#125;</span><br><span class="line"></span><br><span class="line">​    add(1,4,3);</span><br><span class="line">​    add(1,4);</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-与解构赋值一起使用"><a href="#2-与解构赋值一起使用" class="headerlink" title="2.与解构赋值一起使用"></a>2.与解构赋值一起使用</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">connect</span>(<span class="params">&#123;host=<span class="string">&#x27;127.0.0.1&#x27;</span>,username,password,port&#125;</span>)</span>&#123;</span><br><span class="line">​    <span class="built_in">console</span>.log(host);</span><br><span class="line">​     <span class="built_in">console</span>.log(username);</span><br><span class="line">​   &#125;<span class="comment">//函数connect</span></span><br><span class="line"></span><br><span class="line">​    connect(&#123;</span><br><span class="line">​      <span class="comment">//host:&#x27;localhost&#x27;,</span></span><br><span class="line">​      username:<span class="string">&#x27;root&#x27;</span>,</span><br><span class="line">​      password:<span class="string">&#x27;root&#x27;</span>,</span><br><span class="line">​      port:<span class="number">3366</span></span><br><span class="line">​    &#125;)<span class="comment">//调用函数connect</span></span><br></pre></td></tr></table></figure>
+<h4 id="（八）rest参数，用于获取函数的实参，用来代替arguments"><a href="#（八）rest参数，用于获取函数的实参，用来代替arguments" class="headerlink" title="（八）rest参数，用于获取函数的实参，用来代替arguments"></a>（八）rest参数，用于获取函数的实参，用来代替arguments</h4><h5 id="1、ES5和ES6写法比较：（rest放在函数声明的形参里面）"><a href="#1、ES5和ES6写法比较：（rest放在函数声明的形参里面）" class="headerlink" title="1、ES5和ES6写法比较：（rest放在函数声明的形参里面）"></a>1、ES5和ES6写法比较：（rest放在函数声明的形参里面）</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.ES5</span></span><br><span class="line">  ​    <span class="function"><span class="keyword">function</span> <span class="title">data</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  ​      <span class="built_in">console</span>.log(<span class="built_in">arguments</span>);</span><br><span class="line">  ​    &#125;</span><br><span class="line">  ​    data([<span class="string">&#x27;hello&#x27;</span>,<span class="string">&#x27;world&#x27;</span>]);<span class="comment">//Array</span></span><br><span class="line">  ​    data(<span class="string">&#x27;hello&#x27;</span>,<span class="string">&#x27;world&#x27;</span>);<span class="comment">//Object</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//2.ES6</span></span><br><span class="line">  ​    <span class="function"><span class="keyword">function</span> <span class="title">data</span>(<span class="params">...args</span>)</span>&#123;</span><br><span class="line">  ​      <span class="built_in">console</span>.log(args);<span class="comment">//可以使用一些数组的API:filter some every map</span></span><br><span class="line">  ​    &#125;</span><br><span class="line"></span><br><span class="line">  ​    data([<span class="string">&#x27;hello&#x27;</span>,<span class="string">&#x27;world&#x27;</span>]);<span class="comment">//Array</span></span><br><span class="line">  ​    data(<span class="string">&#x27;hello&#x27;</span>,<span class="string">&#x27;world&#x27;</span>);<span class="comment">//Array</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="2、注意事项：参数有多个的时候，rest参数必须放在参数的最后"><a href="#2、注意事项：参数有多个的时候，rest参数必须放在参数的最后" class="headerlink" title="2、注意事项：参数有多个的时候，rest参数必须放在参数的最后"></a>2、注意事项：参数有多个的时候，rest参数必须放在参数的最后</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">	 function fn(a,b,...args)&#123;</span><br><span class="line">​      console.log(&#x27;a=&#x27;,a,&#x27;b=&#x27;,b,&#x27;args=&#x27;,args);</span><br><span class="line">​    &#125;</span><br><span class="line"></span><br><span class="line">​    fn(1,2,3,4,5,6);//a= 1 b= 2 args= Array(4) [ 3, 4, 5, 6 ]</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="（九）扩展运算符"><a href="#（九）扩展运算符" class="headerlink" title="（九）扩展运算符"></a>（九）扩展运算符</h4><h5 id="1、扩展运算符是能将数组转换为逗号分割的参数序列"><a href="#1、扩展运算符是能将数组转换为逗号分割的参数序列" class="headerlink" title="1、扩展运算符是能将数组转换为逗号分割的参数序列"></a>1、扩展运算符是能将数组转换为逗号分割的参数序列</h5><h5 id="2、扩展运算符放在函数调用的实参里面"><a href="#2、扩展运算符放在函数调用的实参里面" class="headerlink" title="2、扩展运算符放在函数调用的实参里面"></a>2、扩展运算符放在函数调用的实参里面</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    const arr=[&#x27;张三&#x27;,&#x27;李四&#x27;,&#x27;王五&#x27;];</span><br><span class="line">​    function student()&#123;</span><br><span class="line">​       console.log(arguments);</span><br><span class="line">​    &#125;</span><br><span class="line"></span><br><span class="line">​    student(arr);</span><br><span class="line">​    student(...arr);//相当于student(&#x27;张三&#x27;,&#x27;李四&#x27;,&#x27;王五&#x27;)</span><br><span class="line">​    student(&#x27;张三&#x27;,&#x27;李四&#x27;,&#x27;王五&#x27;);</span><br></pre></td></tr></table></figure>
+
+<h5 id="3、-数组的合并"><a href="#3、-数组的合并" class="headerlink" title="3、.数组的合并"></a>3、.数组的合并</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    const arr1=[&#x27;老刘&#x27;]</span><br><span class="line">​    const arr2=arr.concat(arr1);</span><br><span class="line">​    console.log(&#x27;arr2&#x27;,arr2);</span><br><span class="line">​    const arr3=[...arr,...arr1];</span><br><span class="line">​    console.log(&#x27;arr3&#x27;,arr3);</span><br></pre></td></tr></table></figure>
+
+<h5 id="4、数组的克隆"><a href="#4、数组的克隆" class="headerlink" title="4、数组的克隆"></a>4、数组的克隆</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">     arr4=[...arr3];                                                     </span><br><span class="line">​    console.log(&#x27;arr4&#x27;,arr4);</span><br></pre></td></tr></table></figure>
+
+<h5 id="5、将伪数组转为真正的数组"><a href="#5、将伪数组转为真正的数组" class="headerlink" title="5、将伪数组转为真正的数组"></a>5、将伪数组转为真正的数组</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">     <span class="keyword">const</span> divs=<span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;div&#x27;</span>);</span><br><span class="line">​    <span class="built_in">console</span>.log(divs);</span><br><span class="line">​    <span class="keyword">const</span> divArr=[...divs];</span><br><span class="line">​    <span class="built_in">console</span>.log(divArr);</span><br></pre></td></tr></table></figure>
+
+<h4 id="（十）Symbol（ES6峡谷的第七位英雄-）"><a href="#（十）Symbol（ES6峡谷的第七位英雄-）" class="headerlink" title="（十）Symbol（ES6峡谷的第七位英雄^.^）"></a>（十）Symbol（ES6峡谷的第七位英雄^.^）</h4><p>​    ES6引入了一种新的原始数据类型Symbol，标识独一无二的值。他是js语言的第七种数据（USONB u are so niubility你很牛逼）类型，是一种类似于字符串的 数据类型</p>
+<p>（USONB u are so niubility你很牛逼）<strong>Undefined</strong>、<strong>String</strong>、 <strong>Symbol</strong>、<strong>Object</strong>、<strong>Null</strong>、<strong>Number</strong>、<strong>Boolean</strong></p>
+<h5 id="1、Symbol的值是唯一的，用来解决命名冲突的问题"><a href="#1、Symbol的值是唯一的，用来解决命名冲突的问题" class="headerlink" title="1、Symbol的值是唯一的，用来解决命名冲突的问题"></a>1、Symbol的值是唯一的，用来解决命名冲突的问题</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> （1）.Symbol创建,描述字符串可以重复</span><br><span class="line"></span><br><span class="line">​    let s=Symbol();</span><br><span class="line">​    console.log(s,typeof s);</span><br><span class="line">​    let s1=Symbol(&#x27;描述字符串&#x27;);</span><br><span class="line">​    console.log(s1,typeof s1);</span><br><span class="line">​    let s11=Symbol(&#x27;描述字符串&#x27;);</span><br><span class="line">​    console.log(s1===s11);//false</span><br><span class="line"></span><br><span class="line">（2）.Symbol.for创建，描述字符串不可以重复</span><br><span class="line"></span><br><span class="line">​    let s2=Symbol.for(&#x27;hah&#x27;);</span><br><span class="line">​    console.log(s2,typeof s2);</span><br><span class="line">​    let s3=Symbol.for(&#x27;hah&#x27;);</span><br><span class="line">​    console.log(s2===s3);//true</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="2、Symbol值不能与其他数据进行运算"><a href="#2、Symbol值不能与其他数据进行运算" class="headerlink" title="2、Symbol值不能与其他数据进行运算"></a>2、Symbol值不能与其他数据进行运算</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let res=s+&#x27;hi&#x27;</span><br></pre></td></tr></table></figure>
+
+<h5 id="3、Symbol定义的对象属性不能使用for…in循环遍历，但是可以使用Reflect-ownKeys来获取对象的所有键名"><a href="#3、Symbol定义的对象属性不能使用for…in循环遍历，但是可以使用Reflect-ownKeys来获取对象的所有键名" class="headerlink" title="3、Symbol定义的对象属性不能使用for…in循环遍历，但是可以使用Reflect.ownKeys来获取对象的所有键名"></a>3、Symbol定义的对象属性不能使用for…in循环遍历，但是可以使用Reflect.ownKeys来获取对象的所有键名</h5><h5 id="4、Symbol内置值（指的是Symbol的一个属性-）"><a href="#4、Symbol内置值（指的是Symbol的一个属性-）" class="headerlink" title="4、Symbol内置值（指的是Symbol的一个属性 ）"></a>4、Symbol内置值（指的是Symbol的一个属性 ）</h5><h4 id="（十一）迭代器"><a href="#（十一）迭代器" class="headerlink" title="（十一）迭代器"></a>（十一）迭代器</h4><p>迭代器是一种接口，为各种不同的数据结构提供统一的访问机制。任何数据结构只要部署iterator接口，就可以完成遍历操作</p>
+<h5 id="1、ES6创造了一种新的遍历命令for…of循环，iteratior接口（对象里面的一个属性）主要供for…of消费"><a href="#1、ES6创造了一种新的遍历命令for…of循环，iteratior接口（对象里面的一个属性）主要供for…of消费" class="headerlink" title="1、ES6创造了一种新的遍历命令for…of循环，iteratior接口（对象里面的一个属性）主要供for…of消费"></a>1、ES6创造了一种新的遍历命令for…of循环，iteratior接口（对象里面的一个属性）主要供for…of消费</h5><h5 id="2、原生具备iterator接口的数据（可用for…of遍历）"><a href="#2、原生具备iterator接口的数据（可用for…of遍历）" class="headerlink" title="2、原生具备iterator接口的数据（可用for…of遍历）"></a>2、原生具备iterator接口的数据（可用for…of遍历）</h5><p>​    1）Array</p>
+<p>​    2）Arguments</p>
+<p>​    3）set</p>
+<p>​    4）Map</p>
+<p>​    5）String</p>
+<p>​    6）TypedArray</p>
+<p>​    7）NodeNist</p>
+<h5 id="3、工作原理"><a href="#3、工作原理" class="headerlink" title="3、工作原理"></a>3、工作原理</h5><p>​    1）创建一个只指针对象，指向当前数据结构的起始位置</p>
+<p>​    2）第一次调用对象的next()方法，指针自动指向数据结构的第一个成员</p>
+<p>​    3）接下来不断调用next()方法，指针一直在往后移动，直到指向最后一个成员</p>
+<p>​    4）每调用next方法返回一个包含value和done属性（false表示没有遍历完成，true表示遍历完成）的对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"> 	<span class="keyword">const</span> school=&#123;</span><br><span class="line">​      name:<span class="string">&#x27;etc&#x27;</span>,</span><br><span class="line">​      student:[<span class="string">&#x27;张三&#x27;</span>,<span class="string">&#x27;李四&#x27;</span>,<span class="string">&#x27;王五&#x27;</span>];</span><br><span class="line">​      [<span class="built_in">Symbol</span>.iterator]()&#123;</span><br><span class="line">​        <span class="keyword">let</span> index=<span class="number">0</span>;</span><br><span class="line">​        <span class="keyword">return</span> &#123;</span><br><span class="line">​          next:<span class="function">()=&gt;</span>&#123;             </span><br><span class="line">​            <span class="keyword">if</span>(index&lt;<span class="built_in">this</span>.student.length)&#123;</span><br><span class="line">​              <span class="keyword">const</span> res= &#123;<span class="attr">value</span>:<span class="built_in">this</span>.student[index],<span class="attr">done</span>:<span class="literal">false</span>&#125;;</span><br><span class="line">​              index++;</span><br><span class="line">​              <span class="keyword">return</span> res;</span><br><span class="line">​            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">​               <span class="keyword">return</span> &#123;<span class="attr">value</span>:<span class="literal">undefined</span>,<span class="attr">done</span>:<span class="literal">true</span>&#125;;</span><br><span class="line">​            &#125;</span><br><span class="line">​          &#125;</span><br><span class="line">​        &#125;</span><br><span class="line">​      &#125;</span><br><span class="line">​    &#125;;</span><br><span class="line">​    <span class="keyword">for</span>( <span class="keyword">let</span> s <span class="keyword">of</span> school)&#123;</span><br><span class="line">​      <span class="built_in">console</span>.log(s);</span><br><span class="line">​    &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="（十二）生成器"><a href="#（十二）生成器" class="headerlink" title="（十二）生成器"></a>（十二）生成器</h4><p>生成器是ES6提供的异步编程解决方案，其实就是一个特殊的函数</p>
+<p>异步编程：整个js是一个单线程的操作，很多操作都是异步来完成的（IO、文件操作、 网络操作[ajax/request]、数据库操作）</p>
+<h4 id="（十三）promise"><a href="#（十三）promise" class="headerlink" title="（十三）promise"></a>（十三）promise</h4><p>promise是ES6引入的异步编程（文件IO、数据IO、网络请求IO）的新解决方案。语法上promise是一个构造函数，用来封装异步操作并可以获取其成功或失败的结果。</p>
+<p>1）promise构造函数：promise（excutor）{}</p>
+<p>2）promise.prototype.then方法</p>
+<p>3）promise.prototype.catch方法</p>
+<p>4）其他的API 和一些手写promise</p>
+<h4 id="（十四）Set"><a href="#（十四）Set" class="headerlink" title="（十四）Set"></a>（十四）Set</h4><p>ES6提供了新的数据结构Set（集合）。它类似于数组，但成员的值都是唯一的，集合实现了iterator接口，所以可以使用【扩展运算符】和【for…of…】进行遍历，Set的属性和方法：</p>
+<p>1）size     返回集合的元素个数</p>
+<p>2）add     增加一个新元素，返回当前集合</p>
+<p>3）delete 删除元素，返回boolean值</p>
+<p>4）has      检测集合中是否包含某个元素，返回boolean</p>
+<h4 id="（十五）Map"><a href="#（十五）Map" class="headerlink" title="（十五）Map"></a>（十五）Map</h4><p>类似与对象，也是键值对的集合。但是”键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。Map也实现了iterator接口，所以可以使用扩展运算符和【for…of…】进行遍历。Map的属性和方法：</p>
+<p>1）size    返回Map的元素个数</p>
+<p>2）set     增加一个新元素，返回当前Map</p>
+<p>3）get    返回键名对象的键值</p>
+<p>4）has    检测Map中是否包含某个元素，返回Boolean值</p>
+<p>5）clear  清空集合，返回underfinded</p>
+
+      
+    </div>
+    <!-- <footer class="article-footer">
+      <a data-url="http://example.com/2021/10/05/ES6/" data-id="ckxk4hqw300007cvo50vy6hid" class="article-share-link">
+        分享
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
+
+    </footer> -->
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  <a href="/2021/11/03/studyRoute/" class="article-nav-link">
+    <strong class="article-nav-caption">前一篇</strong>
+    <div class="article-nav-title">
+      
+      前端学习路线（置顶文章）
+      
+    </div>
+  </a>
+  
+  
+  <a href="/2021/08/13/BrowingPrinciple/" class="article-nav-link">
+    <strong class="article-nav-caption">后一篇</strong>
+    <div class="article-nav-title">浏览器是如何工作的</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+  
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt"></i>
+     <!-- <span id="busuanzi_value_site_uv"></span> -->
+    </li>
+  
+  <li><i class="fe fe-bookmark"></i> 
+    <span id="busuanzi_value_page_pv"></span>
+  </li>
+  
+</ul>     
+    </div>
+    
+    <ul class="list-inline">
+      <li>柯 &copy; 2022</li>
+      
+        <li>ZHWANGART</li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+     
+    </ul>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/star.svg" alt="柯"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">Home</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">Archives</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">About</a>
+    </li>
+    
+   
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop" style="width: 5rem;height:5rem;">
+  <i class="fe fe-rocket" ></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/copybtn.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>
