@@ -77,7 +77,7 @@
 <span id="more"></span>
 
 
-<h4 id="一、浏览器结构图"><a href="#一、浏览器结构图" class="headerlink" title="一、浏览器结构图"></a>一、浏览器结构图</h4><h5 id="1、下图是简化的浏览器结构图"><a href="#1、下图是简化的浏览器结构图" class="headerlink" title="1、下图是简化的浏览器结构图"></a>1、下图是简化的浏览器结构图</h5><p><img src="http://r4rg6x7uh.hn-bkt.clouddn.com/image-20211230170150494.png"></p>
+<h4 id="一、浏览器结构图"><a href="#一、浏览器结构图" class="headerlink" title="一、浏览器结构图"></a>一、浏览器结构图</h4><h5 id="1、下图是简化的浏览器结构图"><a href="#1、下图是简化的浏览器结构图" class="headerlink" title="1、下图是简化的浏览器结构图"></a>1、下图是简化的浏览器结构图</h5><p><img src="https://cdn.jsdelivr.net/gh/akucintapadamu/ImageHostingServer/images/20220213221352.png"></p>
 <h5 id="2、不同浏览器使用的内核不一样"><a href="#2、不同浏览器使用的内核不一样" class="headerlink" title="2、不同浏览器使用的内核不一样"></a>2、不同浏览器使用的内核不一样</h5><table>
 <thead>
 <tr>
@@ -104,8 +104,9 @@
 <li><p>根据进程功能不同来拆卸浏览器，可以分解为以下的结构：</p>
 </li>
 </ul>
-<p><img src="http://r4rg6x7uh.hn-bkt.clouddn.com/image-20211230172106238.png"></p>
-<h5 id="2、接下来让我们看看在浏览器地址栏里面输入内容时，浏览器内部会发生什么事情："><a href="#2、接下来让我们看看在浏览器地址栏里面输入内容时，浏览器内部会发生什么事情：" class="headerlink" title="2、接下来让我们看看在浏览器地址栏里面输入内容时，浏览器内部会发生什么事情："></a>2、接下来让我们看看在浏览器地址栏里面输入内容时，浏览器内部会发生什么事情：<img src="http://r4rg6x7uh.hn-bkt.clouddn.com/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%861.png" alt="浏览器工作原理1"></h5><h5 id="3、简化来说就是下图："><a href="#3、简化来说就是下图：" class="headerlink" title="3、简化来说就是下图："></a>3、简化来说就是下图：</h5><p><img src="http://r4rg6x7uh.hn-bkt.clouddn.com/image-20211231111032064.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/akucintapadamu/ImageHostingServer/images/20220213221540.png"></p>
+<h5 id="2、接下来让我们看看在浏览器地址栏里面输入内容时，浏览器内部会发生什么事情："><a href="#2、接下来让我们看看在浏览器地址栏里面输入内容时，浏览器内部会发生什么事情：" class="headerlink" title="2、接下来让我们看看在浏览器地址栏里面输入内容时，浏览器内部会发生什么事情："></a>2、接下来让我们看看在浏览器地址栏里面输入内容时，浏览器内部会发生什么事情：</h5><p><img src="https://cdn.jsdelivr.net/gh/akucintapadamu/ImageHostingServer/images/20220213221754.png" alt="浏览器工作原理"></p>
+<h5 id="3、简化来说就是下图："><a href="#3、简化来说就是下图：" class="headerlink" title="3、简化来说就是下图："></a>3、简化来说就是下图：</h5><p><img src="https://cdn.jsdelivr.net/gh/akucintapadamu/ImageHostingServer/images/20220213215438.png"></p>
 <h4 id="三、页面经常发生改变会引起什么问题"><a href="#三、页面经常发生改变会引起什么问题" class="headerlink" title="三、页面经常发生改变会引起什么问题"></a>三、页面经常发生改变会引起什么问题</h4><p>接下来引入两个概念：</p>
 <h5 id="1、重绘和重排"><a href="#1、重绘和重排" class="headerlink" title="1、重绘和重排"></a>1、重绘和重排</h5><ul>
 <li>重排：当我们改变一个元素的尺寸位置属性时，会重新进行样式计算（computed style）、布局（layout）、绘制（paint）以及后面的所有流程</li>
@@ -113,7 +114,7 @@
 </ul>
 <p>重排和重绘都会占用主线程，JS也是会运行在主线程上的，他们都运行在主线程上，就会出现抢占执行时间的问题，如果写了一个不断导致重排重绘的动画，浏览器则需要在每一帧都运行样式计算、布局和绘制的操作。</p>
 <p>当页面以每秒60帧的刷新率时（也是每帧16ms）才不会让用户感到页面卡顿，如果在运行动画时还有大量JS任务需要执行，因为布局、绘制、和JS执行都是在主线程进行的，当在一帧的时间内布局和绘制结束后还有剩余的时间，JS就会拿到主线程的使用权，如果JS执行时间过长就会导致下一帧开始时JS没有及时归还主线程，导致下一帧动画没有按时渲染，就会出现页面动画的卡顿</p>
-<p><img src="http://r4rg6x7uh.hn-bkt.clouddn.com/image-20211231105800750.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/akucintapadamu/ImageHostingServer/images/20220213221858.png"></p>
 <h5 id="2、有什么优化手段可以解决动画卡顿的问题吗？"><a href="#2、有什么优化手段可以解决动画卡顿的问题吗？" class="headerlink" title="2、有什么优化手段可以解决动画卡顿的问题吗？"></a>2、有什么优化手段可以解决动画卡顿的问题吗？</h5><ul>
 <li><p><strong>requestAnimitionFrame</strong></p>
 <ul>
@@ -126,7 +127,7 @@
 </ul>
 </li>
 </ul>
-<p><img src="http://r4rg6x7uh.hn-bkt.clouddn.com/image-20211231105733737.png" alt="image-20211231105733737"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/akucintapadamu/ImageHostingServer/images/20220213221900.png" alt="image-20211231105733737"></p>
 
       
     </div>
